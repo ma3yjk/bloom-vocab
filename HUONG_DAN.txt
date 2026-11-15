@@ -1,0 +1,7 @@
+BLOOM VOCAB – WEBSITE HỌC TỪ VỰNG CỘNG ĐỒNG
+
+Địa chỉ dự kiến: https://ma.github.io/bloom-vocab/
+
+Mọi người có thể xem và học mà không cần đăng nhập. Muốn thêm từ phải đăng nhập Google. Chỉ tài khoản được cấp role admin mới sửa/xóa từ và quản lý chủ đề.
+
+Cần cấu hình Supabase + Google OAuth và xuất bản repository GitHub Pages theo HUONG_DAN_CAI_DAT.txt. Website chưa trực tuyến cho đến khi hoàn tất các bước này.

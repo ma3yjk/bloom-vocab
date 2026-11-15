@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bloom Vocab | Học từ vựng tiếng Anh</title>
+<style>
+:root{--pink:#e77da8;--pink-dark:#bd527f;--pink-light:#fff0f6;--pink-mid:#f9dce8;--ink:#342b32;--muted:#887984;--line:#f0dce5;--bg:#fffafd;--green:#36836a;--red:#c65b68}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.55 system-ui,-apple-system,"Segoe UI",sans-serif}
+button,input,select,textarea{font:inherit}button{cursor:pointer}
+header{background:#fff;border-bottom:1px solid var(--line);padding:14px max(20px,calc((100% - 1120px)/2));display:flex;justify-content:space-between;align-items:center;gap:15px;position:sticky;top:0;z-index:5}
+.brand{display:flex;align-items:center;gap:10px}.logo{width:40px;height:40px;border-radius:13px;background:linear-gradient(135deg,#f5b4ce,#df6f9e);display:grid;place-items:center;color:white;font-size:21px}.brand b{font-size:18px}.brand small{display:block;color:var(--muted);font-size:11px}
+nav{display:flex;gap:5px;flex-wrap:wrap}nav button{border:0;background:transparent;color:#786b75;border-radius:9px;padding:9px 12px;font-size:12px;font-weight:650}nav button.active,nav button:hover{background:var(--pink-light);color:var(--pink-dark)}
+main{max-width:1120px;margin:0 auto;padding:28px 22px 60px}.view{display:none}.view.active{display:block}
+h1{font-size:27px;letter-spacing:-.7px;margin:3px 0}.muted{color:var(--muted)}.intro{font-size:13px;color:var(--muted);margin:4px 0 22px}
+.hero{background:linear-gradient(115deg,#fce4ee,#fff2f7);border:1px solid var(--pink-mid);border-radius:20px;padding:25px 28px;display:flex;justify-content:space-between;align-items:center;gap:15px;margin-bottom:18px}.hero h2{margin:0 0 5px;font-size:23px}.hero p{margin:0;color:#856e7b;font-size:13px}.hero .flower{font-size:58px}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:13px}.card{background:white;border:1px solid var(--line);border-radius:15px;padding:17px;box-shadow:0 6px 20px #75465a0a}.card h3{margin:0 0 5px;font-size:15px}.card p{margin:3px 0;color:var(--muted);font-size:12px}
+.big-number{font-size:25px;color:var(--pink-dark);font-weight:800}.btn{border:0;border-radius:10px;padding:10px 14px;background:var(--pink);color:white;font-weight:700;font-size:12px}.btn:hover{background:var(--pink-dark)}.btn.light{background:var(--pink-light);color:var(--pink-dark)}.btn.outline{background:white;color:var(--pink-dark);border:1px solid var(--line)}.btn:disabled{opacity:.45;cursor:not-allowed}
+.row{display:flex;gap:9px;align-items:center;flex-wrap:wrap}.between{display:flex;align-items:center;justify-content:space-between;gap:12px}.field{display:grid;gap:5px;margin:10px 0}.field label{font-size:12px;font-weight:700;color:#695b65}.field input,.field select,.field textarea,.search{width:100%;border:1px solid var(--line);border-radius:10px;padding:10px 12px;background:white;outline:none;color:var(--ink)}.field input:focus,.field select:focus,.field textarea:focus,.search:focus{border-color:var(--pink)}.formgrid{display:grid;grid-template-columns:1fr 1fr;gap:0 13px}.full{grid-column:1/-1}
+.toolbar{display:flex;gap:9px;flex-wrap:wrap;margin:15px 0}.toolbar .search{flex:1;min-width:180px}.word-list{display:grid;gap:10px;margin-top:15px}.word{display:grid;grid-template-columns:64px 1fr auto;gap:13px;align-items:center;background:white;border:1px solid var(--line);border-radius:13px;padding:11px}.word img{width:64px;height:64px;object-fit:cover;border-radius:10px;background:var(--pink-light)}.word .placeholder{width:64px;height:64px;border-radius:10px;background:var(--pink-light);display:grid;place-items:center;font-size:25px}.word b{font-size:15px}.word small{display:block;color:var(--muted);font-size:12px}.tag{display:inline-block;background:var(--pink-light);color:var(--pink-dark);border-radius:20px;padding:3px 8px;font-size:10px;margin-top:5px}
+.flash-wrap{max-width:580px;margin:18px auto;text-align:center}.flash{background:white;border:1px solid var(--line);border-radius:22px;min-height:260px;padding:28px;display:grid;place-content:center;box-shadow:0 10px 30px #75465a0b}.flash img{max-width:170px;max-height:110px;object-fit:contain;margin:0 auto 10px;border-radius:12px}.flash .term{font-size:32px;font-weight:850;color:var(--pink-dark)}.flash .meaning{font-size:21px;margin-top:10px}.flash .example{color:var(--muted);font-size:13px;margin-top:8px}.flash img{cursor:pointer}.flash .term,.flash .meaning{cursor:pointer}.flash .tap-hint{font-size:12px;color:var(--muted);margin-top:9px}.suggestions{font-size:12px;color:var(--muted);margin-top:5px}.suggestions select{width:100%;border:1px solid var(--line);border-radius:9px;padding:8px;background:#fff8fb;color:var(--ink)}.upload-row{display:flex;gap:8px;align-items:center;flex-wrap:wrap}.upload-row input[type=file]{max-width:100%;font-size:12px}.game-image{max-width:280px;max-height:210px;object-fit:contain;border-radius:14px;display:block;margin:12px auto;background:var(--pink-light)}.letter-word{font-size:30px;letter-spacing:5px;font-weight:850;color:var(--pink-dark);text-align:center;margin:18px 0}.flash img:focus,.flash .term:focus,.flash .meaning:focus{outline:2px solid var(--pink);outline-offset:4px}.progress{height:7px;border-radius:20px;background:#f4e7ed;overflow:hidden;margin:14px 0}.progress span{height:100%;display:block;background:var(--pink);width:0}
+.gamebox{max-width:650px;margin:18px auto;background:white;border:1px solid var(--line);border-radius:18px;padding:23px;box-shadow:var(--shadow)}.question{font-size:21px;font-weight:800;margin:12px 0}.options{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin:17px 0}.option{background:#fff8fb;border:1px solid var(--line);border-radius:11px;padding:12px;text-align:left;color:var(--ink)}.option:hover{border-color:var(--pink)}.option.correct{background:#eaf7f1;border-color:#9acdb8}.option.wrong{background:#fff0f0;border-color:#e5a6ac}.feedback{min-height:25px;font-size:13px;font-weight:700}
+.matchgrid{display:grid;grid-template-columns:1fr 1fr;gap:10px}.matchgrid button{border:1px solid var(--line);border-radius:10px;padding:12px;background:#fff8fb}.matchgrid button.selected{border:2px solid var(--pink);background:var(--pink-light)}.matchgrid button.done{background:#eaf7f1;border-color:#a6d4bf;color:var(--green)}
+.empty{text-align:center;padding:30px;color:var(--muted);background:white;border:1px dashed var(--line);border-radius:14px}.topic-manager{margin-top:18px}.topic-row{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:10px 12px;border:1px solid var(--line);border-radius:11px;background:#fff;margin:8px 0}.topic-row .actions{display:flex;gap:6px;flex-wrap:wrap}.notice{background:#fff8e9;border:1px solid #f3e2bb;color:#80652d;border-radius:10px;padding:11px 13px;font-size:12px;margin:12px 0}
+footer{text-align:center;color:#a3919c;font-size:11px;padding:20px;border-top:1px solid var(--line)}
+@media(max-width:760px){header{align-items:flex-start;flex-direction:column;padding:12px 16px}nav{width:100%;overflow-x:auto;flex-wrap:nowrap}nav button{white-space:nowrap}main{padding:22px 15px 45px}.cards{grid-template-columns:1fr 1fr}.hero{padding:20px}.hero .flower{font-size:42px}.word{grid-template-columns:52px 1fr}.word img,.word .placeholder{width:52px;height:52px}.word>.row{grid-column:2}.formgrid{grid-template-columns:1fr}.full{grid-column:auto}}
+@media(max-width:430px){.cards{grid-template-columns:1fr}.options{grid-template-columns:1fr}.hero h2{font-size:19px}}
+.authbar{display:flex;align-items:center;gap:9px;flex-wrap:wrap;margin-left:auto}.authbar small{color:var(--muted)}.authbar .btn{white-space:nowrap}.cloud-status{font-size:12px;color:var(--muted);margin:8px 0}.role-note{font-size:12px;color:var(--muted)}
+</style>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="config.js"></script>
+</head>
+<body>
+<header>
+ <div class="brand"><div class="logo">✿</div><div><b>Bloom Vocab</b><small>Học từ vựng từng chút mỗi ngày</small></div></div>
+ <div class="authbar"><span id="authStatus"><small>Chưa đăng nhập</small></span><button class="btn" id="googleLogin">Đăng nhập Google</button><button class="btn outline" id="logoutBtn" hidden>Đăng xuất</button></div>
+ <nav>
+  <button class="active" data-view="home">⌂ Tổng quan</button>
+  <button data-view="vocab">▤ Kho từ</button>
+  <button data-view="add">＋ Thêm từ</button>
+  <button data-view="flash">✦ Flashcard</button>
+  <button data-view="exercise">✎ Bài tập</button>
+  <button data-view="games">♧ Trò chơi</button>
+ </nav>
+</header>
+<main>
+<div class="notice" id="cloudNotice">Mọi người có thể xem và học từ vựng công khai. Đăng nhập Google nếu muốn đóng góp từ mới; chỉ quản trị viên mới được sửa, xóa từ và quản lý chủ đề.</div>
+<div class="cloud-status" id="cloudStatus" aria-live="polite">Đang chờ đăng nhập...</div>
+<section class="view active" id="home">
+ <div class="hero"><div><span class="tag">ENGLISH VOCABULARY</span><h2>Mỗi ngày một ít, tiến bộ thật nhiều!</h2><p>Ghi nhớ từ mới, ôn tập bằng thẻ học và luyện tập qua trò chơi.</p><div class="row" style="margin-top:15px"><button class="btn" onclick="show('flash')">Bắt đầu học</button><button class="btn outline" onclick="show('add')">Thêm từ mới</button></div></div><div class="flower">🌷</div></div>
+ <div class="cards">
+  <div class="card"><p>Tổng số từ trong kho</p><div class="big-number" id="statTotal">0</div><small class="muted">Từ có sẵn và từ bạn thêm</small></div>
+  <div class="card"><p>Từ do bạn tạo</p><div class="big-number" id="statCustom">0</div><small class="muted">Từ do cộng đồng đóng góp</small></div>
+  <div class="card"><p>Chủ đề từ vựng</p><div class="big-number" id="statTopics">5</div><small class="muted">Các nhóm từ cơ bản</small></div>
+ </div>
+ <h3 style="margin:25px 0 10px">Học từ vựng theo chủ đề</h3>
+ <div class="cards" id="topicCards"></div>
+ <div class="card topic-manager" id="topicManagerCard">
+  <div class="between"><div><h3>Quản lý chủ đề</h3><p class="muted">Tạo chủ đề riêng, đổi tên hoặc xóa chủ đề không còn dùng.</p></div></div>
+  <div class="row"><input class="search" id="newTopicName" placeholder="Ví dụ: Thể thao, Công nghệ..." style="max-width:340px"><button class="btn" id="createTopic">＋ Tạo chủ đề</button></div>
+  <div id="topicManagerList"></div>
+ </div>
+ <div class="notice">Mẹo học: hãy học 5–10 từ mới, đọc thành tiếng và ôn lại bằng flashcard hoặc trò chơi.</div>
+</section>
+
+<section class="view" id="vocab">
+ <h1>Kho từ vựng</h1><p class="intro">Tìm kiếm, lọc chủ đề và xem nghĩa của các từ tiếng Anh.</p>
+ <div class="toolbar"><input class="search" id="searchWord" placeholder="Tìm từ tiếng Anh hoặc nghĩa tiếng Việt..."><select class="search" id="filterTopic" style="max-width:190px"><option value="">Tất cả chủ đề</option></select></div>
+ <div class="word-list" id="wordList"></div>
+</section>
+
+<section class="view" id="add">
+ <h1 id="formHeading">Thêm từ vựng của bạn</h1><p class="intro">Thêm từ vào kho chung để mọi thành viên cùng học.</p>
+ <div class="card" style="max-width:700px">
+  <form id="addForm">
+   <div class="formgrid">
+    <div class="field"><label for="en">Từ tiếng Anh *</label><input id="en" required placeholder="Ví dụ: beautiful" autocomplete="off"><div class="suggestions" id="translationStatus">Nhập từ tiếng Anh để nhận gợi ý nghĩa tiếng Việt.</div></div>
+    <div class="field"><label for="vi">Nghĩa tiếng Việt *</label><input id="vi" required placeholder="Chọn gợi ý hoặc tự nhập nghĩa"><div class="suggestions"><select id="viSuggestions" aria-label="Chọn nghĩa gợi ý" hidden><option value="">Chọn một nghĩa gợi ý...</option></select></div></div>
+    <div class="field"><label for="topic">Chủ đề</label><select id="topic"><option>Thông dụng</option><option>Gia đình</option><option>Trường học</option><option>Đồ ăn</option><option>Thiên nhiên</option><option>Cảm xúc</option><option>Khác</option></select></div>
+    <div class="field"><label for="type">Từ loại</label><select id="type"><option>Danh từ (noun)</option><option>Động từ (verb)</option><option>Tính từ (adjective)</option><option>Trạng từ (adverb)</option><option>Cụm từ (phrase)</option></select></div>
+    <div class="field full"><label for="example">Câu ví dụ</label><input id="example" placeholder="She is a beautiful girl."></div>
+    <div class="field full"><label for="img">Tải ảnh lên hoặc dán link</label><input id="img" type="url" placeholder="Dán link ảnh https://..."><div class="upload-row"><input id="imgFile" type="file" accept="image/*"><span class="muted" style="font-size:12px">Hoặc chọn ảnh từ máy tính</span></div></div>
+   </div>
+   <div class="row"><button class="btn" type="submit" id="saveWordBtn">Lưu từ vựng</button><button class="btn outline" type="button" id="cancelEdit" hidden>Hủy chỉnh sửa</button><button class="btn light" type="button" id="imageSearch">Tìm hình minh họa</button></div>
+   <div id="imagePreview" class="muted" style="font-size:12px;margin-top:12px"></div>
+  </form>
+ </div>
+ <div class="notice">Từ bạn thêm sẽ được lưu trực tuyến và hiển thị với các thành viên khác. Chỉ quản trị viên mới được sửa hoặc xóa từ.</div>
+ <div class="row"><button class="btn outline" id="exportBtn">Xuất bản sao lưu</button><label class="btn outline" for="importFile">Nhập bản sao lưu</label><input id="importFile" type="file" accept="application/json" hidden></div>
+</section>
+
+<section class="view" id="flash">
+ <h1>Flashcard</h1><p class="intro">Nhìn từ tiếng Anh, thử nhớ nghĩa rồi lật thẻ để kiểm tra.</p>
+ <div class="flash-wrap"><div class="between"><span class="muted" id="flashCount">Thẻ 1</span><select id="flashTopic" class="search" style="max-width:180px"><option value="">Tất cả chủ đề</option></select></div><div class="progress"><span id="flashProgress"></span></div>
+  <div class="flash" id="flashCard"><div class="term">apple</div><div class="tap-hint">Nhấn từ để xem nghĩa · Nhấn ảnh để nghe phát âm</div></div>
+  <div class="row" style="justify-content:center;margin-top:15px"><button class="btn outline" id="prevFlash">← Trước</button><button class="btn outline" id="nextFlash">Tiếp →</button></div>
+ </div>
+</section>
+
+<section class="view" id="exercise">
+ <h1>Bài tập theo chủ đề</h1><p class="intro">Chọn chủ đề và dạng bài tập để ôn từ vựng đã học.</p>
+ <div class="row" style="margin:12px 0"><label for="exerciseTopic" class="muted">Chủ đề:</label><select id="exerciseTopic" class="search" style="max-width:240px"><option value="">Tất cả chủ đề</option></select></div>
+ <div class="row"><button class="btn" data-exercise="meaning">Chọn nghĩa đúng</button><button class="btn light" data-exercise="write">Viết từ tiếng Anh</button><button class="btn light" data-exercise="translate">Dịch nghĩa sang tiếng Anh</button></div>
+ <div class="gamebox" id="exerciseBox"><div class="muted">Chọn một dạng bài tập phía trên để bắt đầu.</div></div>
+</section>
+
+<section class="view" id="games">
+ <h1>Trò chơi ôn từ</h1><p class="intro">Luyện nhớ nghĩa và cách viết qua các thử thách ngắn.</p>
+ <div class="row" style="margin:12px 0"><label for="gameTopic" class="muted">Ôn tập theo chủ đề:</label><select id="gameTopic" class="search" style="max-width:240px"><option value="">Tất cả chủ đề</option></select></div>
+ <div class="row"><button class="btn" data-game="cloze">Điền từ còn thiếu</button><button class="btn light" data-game="letters">Điền chữ cái còn thiếu</button><button class="btn light" data-game="quiz">Chọn nghĩa đúng</button><button class="btn light" data-game="match">Nối từ với nghĩa</button><button class="btn light" data-game="picture">Nhìn ảnh đoán từ</button></div>
+ <div class="gamebox" id="gameBox"><div class="muted">Chọn một trò chơi phía trên để bắt đầu nhé!</div></div>
+</section>
+</main>
+<footer>Bloom Vocab · Một góc nhỏ để yêu thích việc học từ vựng 🌸</footer>
+<script>
+const starter=[
+['apple','quả táo','Đồ ăn','danh từ','I eat an apple.','https://images.unsplash.com/photo-1560806887-1e4cd0b6cbd6?w=300'],
+['book','quyển sách','Trường học','danh từ','This is my book.','https://images.unsplash.com/photo-1544947950-fa07a98d237f?w=300'],
+['family','gia đình','Gia đình','danh từ','I love my family.',''],
+['mother','mẹ','Gia đình','danh từ','My mother is kind.',''],
+['teacher','giáo viên','Trường học','danh từ','My teacher is nice.',''],
+['beautiful','xinh đẹp','Thông dụng','tính từ','The flowers are beautiful.',''],
+['happy','vui vẻ','Cảm xúc','tính từ','I am happy today.',''],
+['water','nước','Đồ ăn','danh từ','Please drink water.',''],
+['school','trường học','Trường học','danh từ','I go to school.',''],
+['tree','cây','Thiên nhiên','danh từ','The tree is tall.',''],
+['sun','mặt trời','Thiên nhiên','danh từ','The sun is bright.',''],
+['read','đọc','Trường học','động từ','I read every day.',''],
+['learn','học','Thông dụng','động từ','I learn English.',''],
+['friend','bạn bè','Gia đình','danh từ','She is my friend.',''],
+['kind','tốt bụng','Cảm xúc','tính từ','He is kind to others.','']
+].map((x,i)=>({id:'s'+i,en:x[0],vi:x[1],topic:x[2],type:x[3],example:x[4],img:x[5],custom:false}));
+let custom=[],customTopics=[],topicRenames={},wordTopicOverrides={},words=[...starter];
+let flashIndex=0,flipped=false,gameMode='',matchLeft=null,matched=[];
+const $=id=>document.getElementById(id);
+const SB_CONFIG=window.BLOOM_SUPABASE_CONFIG||{};
+const sb=(window.supabase&&SB_CONFIG.url&&SB_CONFIG.anonKey&&!SB_CONFIG.url.includes('YOUR_')&&!SB_CONFIG.anonKey.includes('YOUR_'))?window.supabase.createClient(SB_CONFIG.url,SB_CONFIG.anonKey):null;
+let currentUser=null,currentProfile=null,isAdmin=false,cloudReady=false,realtimeChannel=null;
+function setCloudStatus(msg){$('cloudStatus').textContent=msg}
+function save(){words=[...starter,...custom];renderAll()}
+async function refreshCloud(){
+ if(!sb){custom=[];customTopics=[];words=[...starter];cloudReady=false;renderAll();updateAuthUI();return}
+ setCloudStatus('Đang tải kho từ vựng công khai...');
+ const [wr,tr]=await Promise.all([sb.from('words').select('*').order('created_at',{ascending:false}),sb.from('topics').select('*').order('name')]);
+ if(wr.error||tr.error){setCloudStatus('Không tải được dữ liệu: '+(wr.error||tr.error).message);return}
+ currentProfile=null;isAdmin=false;
+ if(currentUser){const pr=await sb.from('profiles').select('role').eq('id',currentUser.id).single();if(pr.error){setCloudStatus('Không xác minh được quyền tài khoản: '+pr.error.message);return}currentProfile=pr.data;isAdmin=pr.data.role==='admin'}
+ custom=(wr.data||[]).map(w=>({...w,id:w.id,custom:true,topic:w.topic||'Thông dụng'}));
+ customTopics=(tr.data||[]).map(t=>t.name);words=[...starter,...custom];cloudReady=true;renderAll();updateAuthUI();setCloudStatus('Đã đồng bộ kho chung · '+(currentUser?(isAdmin?'Quản trị viên':'Thành viên đã đăng nhập'):'Đang xem công khai'));
+ if(!realtimeChannel){realtimeChannel=sb.channel('bloom-shared-updates').on('postgres_changes',{event:'*',schema:'public',table:'words'},()=>refreshCloud()).on('postgres_changes',{event:'*',schema:'public',table:'topics'},()=>refreshCloud()).subscribe();}
+}
+function updateAuthUI(){
+ $('authStatus').innerHTML=currentUser?`<small>${esc(currentUser.user_metadata?.full_name||currentUser.email||'Đã đăng nhập')} · ${isAdmin?'Quản trị viên':'Thành viên'}</small>`:'<small>Chưa đăng nhập</small>';
+ $('googleLogin').hidden=!!currentUser;$('logoutBtn').hidden=!currentUser;$('cloudNotice').hidden=false;
+ $('topicManagerCard').style.display=isAdmin?'block':'none';
+ $('saveWordBtn').disabled=!currentUser;$('saveWordBtn').title=currentUser?'':'Đăng nhập Google để thêm từ';
+}
+async function initAuth(){
+ if(!sb){setCloudStatus('Chưa cấu hình Supabase. Kho từ cộng đồng chưa thể tải; hãy làm theo HUONG_DAN_CAI_DAT.txt.');$('googleLogin').disabled=true;updateAuthUI();return}
+ const {data:{session}}=await sb.auth.getSession();currentUser=session?.user||null;await refreshCloud();
+ sb.auth.onAuthStateChange((_event,session)=>{currentUser=session?.user||null;setTimeout(()=>refreshCloud(),0)});
+}
+$('googleLogin').onclick=async()=>{if(!sb)return alert('Bạn cần cấu hình Supabase trước.');const {error}=await sb.auth.signInWithOAuth({provider:'google',options:{redirectTo:location.origin+location.pathname}});if(error)alert('Không thể đăng nhập: '+error.message)};
+$('logoutBtn').onclick=async()=>{if(sb){const {error}=await sb.auth.signOut();if(error)alert(error.message)}};
+function show(id){document.querySelectorAll('.view').forEach(v=>v.classList.toggle('active',v.id===id));document.querySelectorAll('nav button').forEach(b=>b.classList.toggle('active',b.dataset.view===id));if(id==='flash')renderFlash();if(id==='games'&&!gameMode)startGame('cloze');if(id==='exercise'&&!exerciseMode)startExercise('meaning')}
+document.querySelectorAll('nav button').forEach(b=>b.onclick=()=>show(b.dataset.view));
+function topics(){return [...new Set(['Thông dụng','Gia đình','Trường học','Đồ ăn','Thiên nhiên','Cảm xúc','Khác',...customTopics,...words.map(w=>w.topic)].filter(Boolean))].sort((a,b)=>a.localeCompare(b,'vi'))}
+function renderAll(){ $('statTotal').textContent=words.length;$('statCustom').textContent=custom.length;$('statTopics').textContent=topics().length;
+$('topicCards').innerHTML=topics().map(t=>`<div class="card"><h3>${esc(t)}</h3><p>${words.filter(w=>w.topic===t).length} từ vựng</p><button class="btn light small" onclick="openTopic('${esc(t)}')">Xem từ</button></div>`).join('');
+renderTopicManager();
+['filterTopic','flashTopic','gameTopic','exerciseTopic'].forEach(id=>{let el=$(id),v=el.value;el.innerHTML='<option value="">Tất cả chủ đề</option>'+topics().map(t=>`<option>${esc(t)}</option>`).join('');el.value=v});
+{let el=$('topic'),v=el.value;el.innerHTML=topics().map(t=>`<option>${esc(t)}</option>`).join('');el.value=topics().includes(v)?v:(topics().includes('Thông dụng')?'Thông dụng':topics()[0]||'');}
+renderWords();renderFlash();}
+function renderTopicManager(){
+ const host=$('topicManagerList');if(!host)return;
+ host.innerHTML=isAdmin?topics().map(t=>`<div class="topic-row"><div><b>${esc(t)}</b><small class="muted" style="display:block">${words.filter(w=>w.topic===t).length} từ · Chủ đề chung</small></div><div class="actions"><button class="btn outline" data-rename-topic="${esc(t)}">Đổi tên</button><button class="btn light" data-delete-topic="${esc(t)}">Xóa</button></div></div>`).join(''):'<p class="role-note">Chỉ quản trị viên được quản lý chủ đề.</p>';
+ host.querySelectorAll('[data-rename-topic]').forEach(b=>b.onclick=()=>renameTopic(b.dataset.renameTopic));
+ host.querySelectorAll('[data-delete-topic]').forEach(b=>b.onclick=()=>removeTopic(b.dataset.deleteTopic));
+}
+async function createTopic(){if(!isAdmin)return alert('Chỉ quản trị viên được tạo chủ đề.');let name=$('newTopicName').value.trim();if(!name)return alert('Hãy nhập tên chủ đề.');if(topics().some(t=>t.toLowerCase()===name.toLowerCase()))return alert('Chủ đề này đã tồn tại.');const {error}=await sb.from('topics').insert({name});if(error)return alert('Không thể tạo chủ đề: '+error.message);$('newTopicName').value='';await refreshCloud();$('topic').value=name;}
+async function renameTopic(oldName){if(!isAdmin)return;let name=prompt('Nhập tên mới cho chủ đề:',oldName);if(name===null)return;name=name.trim();if(!name)return alert('Tên chủ đề không được để trống.');if(topics().some(t=>t.toLowerCase()===name.toLowerCase()&&t!==oldName))return alert('Tên chủ đề này đã tồn tại.');const {error:e1}=await sb.from('topics').update({name}).eq('name',oldName);if(e1)return alert('Không thể đổi tên: '+e1.message);const {error:e2}=await sb.from('words').update({topic:name}).eq('topic',oldName);if(e2)return alert('Đã đổi tên chủ đề nhưng chưa cập nhật từ: '+e2.message);await refreshCloud();}
+async function removeTopic(name){if(!isAdmin)return;if(!confirm(`Xóa chủ đề “${name}”? Các từ trong chủ đề sẽ được chuyển sang “Thông dụng”.`))return;const {error:e1}=await sb.from('words').update({topic:'Thông dụng'}).eq('topic',name);if(e1)return alert(e1.message);const {error:e2}=await sb.from('topics').delete().eq('name',name);if(e2)return alert(e2.message);await refreshCloud();}
+async function moveWord(id,newTopic){if(!isAdmin)return alert('Chỉ quản trị viên được chuyển chủ đề.');const {error}=await sb.from('words').update({topic:newTopic}).eq('id',id);if(error)return alert('Không thể chuyển chủ đề: '+error.message);await refreshCloud();}
+$('createTopic').onclick=createTopic;$('newTopicName').onkeydown=e=>{if(e.key==='Enter'){e.preventDefault();createTopic()}};
+function esc(s){return String(s||'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
+function openTopic(t){show('vocab');$('filterTopic').value=t;renderWords()}
+function renderWords(){let q=$('searchWord').value.toLowerCase(),t=$('filterTopic').value;let list=words.filter(w=>(!t||w.topic===t)&&(!q||w.en.toLowerCase().includes(q)||w.vi.toLowerCase().includes(q)));$('wordList').innerHTML=list.length?list.map(w=>`<div class="word">${w.img?`<img src="${esc(w.img)}" alt="" onerror="this.style.display='none'">`:'<div class="placeholder">🌸</div>'}<div><b>${esc(w.en)}</b><small>${esc(w.vi)} · ${esc(w.type)}</small><small>${esc(w.example||'Chưa có câu ví dụ')}</small><span class="tag">${esc(w.topic)}</span>${isAdmin?`<select aria-label="Chuyển chủ đề cho ${esc(w.en)}" onchange="moveWord('${w.id}',this.value)" style="margin-top:6px;border:1px solid var(--line);border-radius:8px;padding:5px;max-width:190px">${topics().map(t=>`<option ${t===w.topic?'selected':''}>${esc(t)}</option>`).join('')}</select>`:''}</div><div class="actions">${w.custom&&isAdmin?`<button class="btn outline small" onclick="editWord('${w.id}')">Sửa</button><button class="btn outline small" onclick="deleteWord('${w.id}')">Xóa</button>`:''}<button class="btn light small" onclick="speak('${esc(w.en)}')">🔊</button></div></div>`).join(''):'<div class="empty">Không tìm thấy từ phù hợp.</div>'}
+$('searchWord').oninput=renderWords;$('filterTopic').onchange=renderWords;
+async function deleteWord(id){if(!isAdmin)return alert('Chỉ quản trị viên được xóa từ.');if(!confirm('Bạn có chắc muốn xóa từ này khỏi kho chung?'))return;const {error}=await sb.from('words').delete().eq('id',id);if(error)return alert('Không thể xóa: '+error.message);await refreshCloud()}
+let translationTimer=null,uploadedImage='',editingWordId=null;
+$('en').addEventListener('input',()=>{clearTimeout(translationTimer);let term=$('en').value.trim();$('viSuggestions').hidden=true;if(!term){$('translationStatus').textContent='Nhập từ tiếng Anh để nhận gợi ý nghĩa tiếng Việt.';return}$('translationStatus').textContent='Đang tìm nghĩa gợi ý...';translationTimer=setTimeout(async()=>{try{let url='https://api.mymemory.translated.net/get?q='+encodeURIComponent(term)+'&langpair=en|vi';let res=await fetch(url);if(!res.ok)throw new Error('network');let data=await res.json();let options=[data?.responseData?.translatedText,...(data?.matches||[]).map(x=>x.translation)].map(x=>(x||'').replace(/\s+/g,' ').trim()).filter(x=>x&&!/PLEASE SELECT|NO QUERY|MYMEMORY WARNING/i.test(x));options=[...new Set(options)];let select=$('viSuggestions');select.innerHTML='<option value="">Chọn một nghĩa gợi ý...</option>'+options.slice(0,8).map(x=>`<option value="${esc(x)}">${esc(x)}</option>`).join('');select.hidden=!options.length;$('translationStatus').textContent=options.length?'Chọn nghĩa phù hợp bên dưới hoặc tự sửa nghĩa.':'Chưa tìm được nghĩa tự động; bạn có thể tự nhập.';}catch{$('translationStatus').textContent='Không lấy được gợi ý lúc này. Bạn vẫn có thể tự nhập nghĩa.'}},500)});
+$('viSuggestions').onchange=()=>{if($('viSuggestions').value)$('vi').value=$('viSuggestions').value};
+$('imgFile').onchange=()=>{let file=$('imgFile').files[0];if(!file)return;if(!file.type.startsWith('image/')){alert('Vui lòng chọn một tệp hình ảnh.');return}let reader=new FileReader();reader.onload=()=>{let img=new Image();img.onload=()=>{let canvas=document.createElement('canvas'),scale=Math.min(1,700/Math.max(img.width,img.height));canvas.width=Math.round(img.width*scale);canvas.height=Math.round(img.height*scale);canvas.getContext('2d').drawImage(img,0,0,canvas.width,canvas.height);uploadedImage=canvas.toDataURL('image/jpeg',.78);$('img').value='';$('imagePreview').innerHTML=`<img src="${uploadedImage}" alt="Ảnh xem trước" style="max-width:130px;max-height:100px;border-radius:10px"><div>Đã chọn ảnh từ máy tính.</div>`};img.src=reader.result};reader.readAsDataURL(file)};
+$('img').oninput=()=>{if($('img').value.trim())uploadedImage=''};
+function resetWordForm(){editingWordId=null;uploadedImage='';$('addForm').reset();$('imgFile').value='';$('viSuggestions').hidden=true;$('translationStatus').textContent='Nhập từ tiếng Anh để nhận gợi ý nghĩa tiếng Việt.';$('imagePreview').innerHTML='';$('formHeading').textContent='Thêm từ vựng của bạn';$('saveWordBtn').textContent='Lưu từ vựng';$('cancelEdit').hidden=true;}
+function editWord(id){if(!isAdmin)return alert('Chỉ quản trị viên được sửa từ.');const w=custom.find(x=>x.id===id);if(!w)return;editingWordId=id;uploadedImage='';$('en').value=w.en;$('vi').value=w.vi;$('topic').value=w.topic;$('type').value=w.type||'Danh từ (noun)';$('example').value=w.example||'';$('img').value=(w.img||'').startsWith('data:')?'':(w.img||'');$('imgFile').value='';$('imagePreview').innerHTML=w.img?`<img src="${esc(w.img)}" alt="Ảnh hiện tại" style="max-width:130px;max-height:100px;border-radius:10px"><div>Ảnh hiện tại. Chọn ảnh mới hoặc thay link nếu muốn đổi.</div>`:'Chưa có ảnh.';$('formHeading').textContent='Chỉnh sửa từ vựng';$('saveWordBtn').textContent='Lưu thay đổi';$('cancelEdit').hidden=false;show('add');window.scrollTo({top:0,behavior:'smooth'});}
+$('cancelEdit').onclick=()=>resetWordForm();
+$('addForm').onsubmit=async e=>{e.preventDefault();if(!currentUser)return alert('Hãy đăng nhập Google trước khi thêm từ.');let en=$('en').value.trim(),vi=$('vi').value.trim();if(!en||!vi)return;if(words.some(w=>w.en.toLowerCase()===en.toLowerCase()&&w.id!==editingWordId)){alert('Từ này đã có trong kho rồi!');return}let existing=editingWordId?custom.find(w=>w.id===editingWordId):null;if(editingWordId&&(!existing||!isAdmin)){alert('Chỉ quản trị viên được chỉnh sửa từ.');return}let image=uploadedImage||$('img').value.trim()||(existing?existing.img:'');let payload={en,vi,topic:$('topic').value,type:$('type').value,example:$('example').value.trim(),img:image,created_by:currentUser.id};let result=editingWordId?await sb.from('words').update(payload).eq('id',editingWordId):await sb.from('words').insert(payload);if(result.error){alert('Không thể lưu từ: '+result.error.message);return}resetWordForm();await refreshCloud();show('vocab');$('wordList').scrollIntoView({behavior:'smooth',block:'start'});};
+$('imageSearch').onclick=()=>{let q=$('en').value.trim();if(!q){alert('Hãy nhập từ tiếng Anh trước.');return}window.open('https://commons.wikimedia.org/wiki/Special:MediaSearch?type=image&search='+encodeURIComponent(q),'_blank')};
+function currentFlashWord(){let list=words.filter(w=>!$('flashTopic').value||w.topic===$('flashTopic').value);return list.length?list[(flashIndex+list.length)%list.length]:null}
+function renderFlash(){let list=words.filter(w=>!$('flashTopic').value||w.topic===$('flashTopic').value);if(!list.length){$('flashCount').textContent='Chưa có thẻ';$('flashProgress').style.width='0%';$('flashCard').innerHTML='Chưa có từ trong chủ đề này.';return}flashIndex=(flashIndex+list.length)%list.length;let w=list[flashIndex];$('flashCount').textContent=`Thẻ ${flashIndex+1}/${list.length}`;$('flashProgress').style.width=((flashIndex+1)/list.length*100)+'%';$('flashCard').innerHTML=`${w.img?`<img id="flashImage" src="${esc(w.img)}" alt="Nhấn để nghe ${esc(w.en)}" title="Nhấn ảnh để nghe phát âm">`:''}${flipped?`<div class="meaning" id="flashFlipText" role="button" tabindex="0" title="Nhấn để xem lại từ tiếng Anh">${esc(w.vi)}</div><div class="example">${esc(w.example)}</div><div class="tap-hint">Nhấn nghĩa để lật lại tiếng Anh</div>`:`<div class="term" id="flashFlipText" role="button" tabindex="0" title="Nhấn để xem nghĩa">${esc(w.en)}</div><div class="tap-hint">Nhấn từ để xem nghĩa · Nhấn ảnh để nghe phát âm</div>`}`;let image=$('flashImage');if(image)image.onclick=e=>{e.stopPropagation();speak(w.en)};let flip=$('flashFlipText');if(flip){flip.onclick=()=>{flipped=!flipped;renderFlash()};flip.onkeydown=e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();flipped=!flipped;renderFlash()}}}}
+$('flashTopic').onchange=()=>{flashIndex=0;flipped=false;renderFlash()};$('nextFlash').onclick=()=>{flashIndex++;flipped=false;renderFlash()};$('prevFlash').onclick=()=>{flashIndex--;flipped=false;renderFlash()};
+function speak(s,lang='en-US'){if(!('speechSynthesis'in window)){alert('Trình duyệt này chưa hỗ trợ đọc văn bản.');return}speechSynthesis.cancel();let u=new SpeechSynthesisUtterance(s);u.lang=lang;speechSynthesis.speak(u)}
+document.addEventListener('keydown',e=>{if(!$('flash').classList.contains('active'))return;if(e.target.matches('input,textarea,select,[contenteditable="true"]'))return;if(['ArrowLeft','ArrowRight','ArrowUp','ArrowDown'].includes(e.key)){e.preventDefault();if(e.key==='ArrowLeft'){flashIndex--;flipped=false;renderFlash()}if(e.key==='ArrowRight'){flashIndex++;flipped=false;renderFlash()}if(e.key==='ArrowUp'){let w=currentFlashWord();if(w)speak(w.en,'en-US')}if(e.key==='ArrowDown'){let w=currentFlashWord();if(w)speak(w.vi,'vi-VN')}}});
+function playFeedback(correct){
+ try{
+  const AudioCtx=window.AudioContext||window.webkitAudioContext;if(!AudioCtx)return;
+  const ctx=new AudioCtx();const now=ctx.currentTime;
+  const notes=correct?[523.25,659.25,783.99]:[220,164.81];
+  notes.forEach((freq,i)=>{const osc=ctx.createOscillator(),gain=ctx.createGain();osc.type=correct?'sine':'triangle';osc.frequency.value=freq;gain.gain.setValueAtTime(.0001,now+i*.13);gain.gain.exponentialRampToValueAtTime(correct?.12:.09,now+i*.13+.02);gain.gain.exponentialRampToValueAtTime(.0001,now+i*.13+.16);osc.connect(gain);gain.connect(ctx.destination);osc.start(now+i*.13);osc.stop(now+i*.13+.18)});
+  setTimeout(()=>ctx.close(),900);
+ }catch(e){}
+}
+function startGame(mode){gameMode=mode;let box=$('gameBox');if(sample().length<2){box.innerHTML='<div class="empty">Hãy thêm ít nhất 2 từ để chơi trò này.</div>';return}if(mode==='cloze')cloze();if(mode==='letters')letters();if(mode==='quiz')quiz();if(mode==='match')match();if(mode==='picture')pictureGame()}
+function sample(){let topic=$('gameTopic')?.value||'';return words.filter(w=>!topic||w.topic===topic).sort(()=>Math.random()-.5)}
+function cloze(){let w=sample()[0],sentence=w.example&&w.example.toLowerCase().includes(w.en.toLowerCase())?w.example.replace(new RegExp(w.en,'i'),'_____'):`The meaning of "${w.vi}" is _____.`; $('gameBox').innerHTML=`<div class="tag">ĐIỀN TỪ CÒN THIẾU</div><div class="question">${esc(sentence)}</div><input class="search" id="answer" placeholder="Nhập từ tiếng Anh..." autocomplete="off"><div class="row" style="margin-top:12px"><button class="btn" id="check">Kiểm tra</button><button class="btn light" id="newQ">Câu khác</button></div><p class="feedback" id="feedback"></p>`;$('answer').focus();$('check').onclick=()=>{let ok=$('answer').value.trim().toLowerCase()===w.en.toLowerCase();playFeedback(ok);$('feedback').textContent=ok?'Chính xác! Giỏi lắm 🌷 Đang chuyển câu...':'Chưa đúng, hãy thử lại nhé!';$('feedback').style.color=ok?'var(--green)':'var(--red)';if(ok){$('check').disabled=true;setTimeout(cloze,900)}};$('answer').onkeydown=e=>{if(e.key==='Enter')$('check').click()};$('newQ').onclick=cloze}
+function letters(){let pool=sample().filter(w=>/^[a-z]{3,}$/i.test(w.en));if(!pool.length){$('gameBox').innerHTML='<div class="empty">Chưa có từ phù hợp để tạo câu đố chữ cái.</div>';return}let w=pool[0],chars=[...w.en],hidden=[];let candidates=chars.map((c,i)=>i).filter(i=>i!==0&&i!==chars.length-1);let count=Math.min(Math.max(1,Math.floor(chars.length/3)),candidates.length);while(hidden.length<count){let i=candidates[Math.floor(Math.random()*candidates.length)];if(!hidden.includes(i))hidden.push(i)}let masked=chars.map((c,i)=>hidden.includes(i)?'_':c).join(' ');$('gameBox').innerHTML=`<div class="tag">ĐIỀN CHỮ CÁI CÒN THIẾU</div><div class="muted">Nghĩa tiếng Việt: ${esc(w.vi)}</div><div class="letter-word">${esc(masked)}</div><input class="search" id="answer" placeholder="Nhập từ tiếng Anh hoàn chỉnh..." autocomplete="off"><div class="row" style="margin-top:12px"><button class="btn" id="check">Kiểm tra</button><button class="btn light" id="newQ">Câu khác</button></div><p class="feedback" id="feedback"></p>`;$('answer').focus();$('check').onclick=()=>{let ok=$('answer').value.trim().toLowerCase()===w.en.toLowerCase();playFeedback(ok);$('feedback').textContent=ok?'Chính xác! Giỏi lắm 🌷 Đang chuyển câu...':'Chưa đúng, hãy thử lại nhé!';$('feedback').style.color=ok?'var(--green)':'var(--red)';if(ok){$('check').disabled=true;setTimeout(letters,900)}};$('answer').onkeydown=e=>{if(e.key==='Enter')$('check').click()};$('newQ').onclick=letters}
+function pictureGame(){let pool=sample().filter(w=>w.img);if(!pool.length){$('gameBox').innerHTML='<div class="empty">Kho từ hiện chưa có ảnh. Hãy thêm ảnh cho từ vựng để chơi nhé!</div>';return}let w=pool[0];$('gameBox').innerHTML=`<div class="tag">NHÌN ẢNH ĐOÁN TỪ</div><img class="game-image" src="${esc(w.img)}" alt="Hình minh họa từ vựng"><p class="muted" style="text-align:center">Hình ảnh này tương ứng với từ tiếng Anh nào?</p><input class="search" id="answer" placeholder="Nhập từ tiếng Anh..." autocomplete="off"><div class="row" style="margin-top:12px"><button class="btn" id="check">Kiểm tra</button><button class="btn light" id="newQ">Ảnh khác</button></div><p class="feedback" id="feedback"></p>`;$('answer').focus();$('check').onclick=()=>{let ok=$('answer').value.trim().toLowerCase()===w.en.toLowerCase();playFeedback(ok);$('feedback').textContent=ok?`Chính xác! ${w.en} – ${w.vi} 🌸 Đang chuyển ảnh...`:'Chưa đúng, hãy thử lại nhé!';$('feedback').style.color=ok?'var(--green)':'var(--red)';if(ok){$('check').disabled=true;setTimeout(pictureGame,1000)}};$('answer').onkeydown=e=>{if(e.key==='Enter')$('check').click()};$('newQ').onclick=pictureGame}
+function quiz(){let arr=sample().slice(0,Math.min(4,words.length)),w=arr[0];$('gameBox').innerHTML=`<div class="tag">CHỌN NGHĨA ĐÚNG</div><div class="question">${esc(w.en)}</div><div class="options">${arr.sort(()=>Math.random()-.5).map(x=>`<button class="option" data-id="${x.id}">${esc(x.vi)}</button>`).join('')}</div><p class="feedback" id="feedback"></p>`;document.querySelectorAll('.option').forEach(b=>b.onclick=()=>{if(b.disabled)return;let ok=b.dataset.id===w.id;playFeedback(ok);if(ok){b.classList.add('correct');$('feedback').textContent='Đúng rồi! 🌸 Đang chuyển câu...';$('feedback').style.color='var(--green)';document.querySelectorAll('.option').forEach(x=>x.disabled=true);setTimeout(quiz,900)}else{b.classList.add('wrong');b.disabled=true;$('feedback').textContent='Chưa đúng, hãy chọn lại nhé!';$('feedback').style.color='var(--red)'}})}
+function match(){let arr=sample().slice(0,Math.min(4,words.length));matchLeft=null;matched=[];$('gameBox').innerHTML=`<div class="tag">NỐI TỪ VỚI NGHĨA</div><p class="muted">Chọn một từ tiếng Anh, sau đó chọn nghĩa tương ứng.</p><div class="matchgrid"><div id="leftCol">${arr.map(w=>`<button data-id="${w.id}">${esc(w.en)}</button>`).join('')}</div><div id="rightCol">${[...arr].sort(()=>Math.random()-.5).map(w=>`<button data-id="${w.id}">${esc(w.vi)}</button>`).join('')}</div></div><p class="feedback" id="feedback"></p>`;document.querySelectorAll('#leftCol button').forEach(b=>b.onclick=()=>{if(matched.includes(b.dataset.id))return;document.querySelectorAll('#leftCol button').forEach(x=>x.classList.remove('selected'));b.classList.add('selected');matchLeft=b.dataset.id});document.querySelectorAll('#rightCol button').forEach(b=>b.onclick=()=>{if(!matchLeft||matched.includes(b.dataset.id))return;if(matchLeft===b.dataset.id){playFeedback(true);matched.push(matchLeft);document.querySelectorAll(`[data-id="${matchLeft}"]`).forEach(x=>x.classList.add('done'));$('feedback').textContent=matched.length===arr.length?'Hoàn thành xuất sắc! 🌷 Đang sang lượt mới...':'Chính xác!';$('feedback').style.color='var(--green)';matchLeft=null;if(matched.length===arr.length)setTimeout(match,1100)}else{playFeedback(false);$('feedback').textContent='Chưa khớp, hãy thử lại nhé.';$('feedback').style.color='var(--red)'}})}
+let exerciseMode='';function exercisePool(){let t=$('exerciseTopic').value;return words.filter(w=>!t||w.topic===t).sort(()=>Math.random()-.5)}function startExercise(mode){exerciseMode=mode;let pool=exercisePool(),box=$('exerciseBox');if(!pool.length){box.innerHTML='<div class="empty">Chủ đề này chưa có từ vựng. Hãy thêm từ trước nhé!</div>';return}let w=pool[0],distractors=pool.filter(x=>x.id!==w.id).slice(0,3);if(mode==='meaning'){let opts=[w,...distractors].sort(()=>Math.random()-.5);box.innerHTML=`<div class="tag">CHỌN NGHĨA ĐÚNG</div><div class="question">${esc(w.en)}</div><div class="options">${opts.map(x=>`<button class="option" data-id="${x.id}">${esc(x.vi)}</button>`).join('')}</div><p class="feedback" id="exerciseFeedback"></p><button class="btn light" id="exerciseNext">Câu tiếp theo</button>`;box.querySelectorAll('.option').forEach(b=>b.onclick=()=>{if(b.disabled)return;let ok=b.dataset.id===w.id;b.classList.add(ok?'correct':'wrong');if(ok){playFeedback(true);box.querySelectorAll('.option').forEach(x=>x.disabled=true);$('exerciseFeedback').textContent='Chính xác!';$('exerciseFeedback').style.color='var(--green)'}else{playFeedback(false);b.disabled=true;$('exerciseFeedback').textContent='Chưa đúng, hãy thử lại.';$('exerciseFeedback').style.color='var(--red)'}})}else{box.innerHTML=`<div class="tag">${mode==='write'?'VIẾT TỪ TIẾNG ANH':'DỊCH SANG TIẾNG ANH'}</div><div class="question">Nghĩa tiếng Việt: ${esc(w.vi)}</div><input class="search" id="exerciseAnswer" placeholder="Nhập từ tiếng Anh..." autocomplete="off"><div class="row" style="margin-top:12px"><button class="btn" id="exerciseCheck">Kiểm tra</button><button class="btn light" id="exerciseNext">Câu tiếp theo</button></div><p class="feedback" id="exerciseFeedback"></p>`;$('exerciseAnswer').focus();$('exerciseCheck').onclick=()=>{let ok=$('exerciseAnswer').value.trim().toLowerCase()===w.en.toLowerCase();playFeedback(ok);$('exerciseFeedback').textContent=ok?'Chính xác! 🌷':'Chưa đúng, hãy thử lại.';$('exerciseFeedback').style.color=ok?'var(--green)':'var(--red)'};$('exerciseAnswer').onkeydown=e=>{if(e.key==='Enter')$('exerciseCheck').click()}}$('exerciseNext').onclick=()=>startExercise(mode)}document.querySelectorAll('[data-exercise]').forEach(b=>b.onclick=()=>startExercise(b.dataset.exercise));$('exerciseTopic').onchange=()=>{if(exerciseMode)startExercise(exerciseMode)};
+
+document.querySelectorAll('[data-game]').forEach(b=>b.onclick=()=>startGame(b.dataset.game));
+$('gameTopic').onchange=()=>{if(gameMode)startGame(gameMode)};
+$('exportBtn').onclick=()=>{let backup={words:custom,topics:customTopics};let blob=new Blob([JSON.stringify(backup,null,2)],{type:'application/json'}),a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='bloom-vocab-backup.json';a.click();URL.revokeObjectURL(a.href)};
+$('importFile').onchange=e=>{let f=e.target.files[0];if(!f)return;let r=new FileReader();r.onload=async()=>{try{let data=JSON.parse(r.result);let incoming=Array.isArray(data)?data:data.words;if(!Array.isArray(incoming))throw 0;if(!currentUser)throw new Error('Hãy đăng nhập trước khi nhập dữ liệu.');const rows=incoming.map(w=>({en:w.en,vi:w.vi,topic:w.topic||'Thông dụng',type:w.type||'',example:w.example||'',img:w.img||'',created_by:currentUser.id}));const {error}=await sb.from('words').insert(rows);if(error)throw error;if(isAdmin&&!Array.isArray(data)&&data.topics){for(const name of data.topics){if(!topics().includes(name))await sb.from('topics').insert({name})}}await refreshCloud();alert('Đã nhập từ vào kho chung!')}catch{alert('File sao lưu không hợp lệ.')}};r.readAsText(f)};
+renderAll();
+initAuth();
+</script>
+</body>
+</html>

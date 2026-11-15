@@ -1,0 +1,64 @@
+BLOOM VOCAB – WEBSITE CỘNG ĐỒNG CÔNG KHAI
+Địa chỉ dự kiến: https://ma.github.io/bloom-vocab/
+
+LƯU Ý QUAN TRỌNG
+- Gói này đã có giao diện đăng nhập Google và phần kết nối Supabase, nhưng chưa thể hoạt động trực tuyến ngay vì mỗi người phải tạo/cấu hình dự án Supabase và Google OAuth.
+- Từ mới do thành viên thêm sẽ được lưu chung. Thành viên chỉ xem và thêm; quản trị viên mới sửa/xóa từ và quản lý chủ đề.
+- 15 từ mẫu có sẵn trong website là dữ liệu minh họa cục bộ; các từ do mọi người thêm mới là dữ liệu chung trên Supabase.
+- Website cần được chạy qua HTTPS (ví dụ GitHub Pages), không nên mở trực tiếp bằng file://.
+
+PHẦN 1 – TẠO SUPABASE
+1. Tạo tài khoản tại https://supabase.com/ và tạo một project mới.
+2. Vào SQL Editor → New query. Mở file supabase_setup.sql, sao chép toàn bộ nội dung, dán vào SQL Editor rồi bấm Run.
+3. Vào Project Settings → API. Sao chép Project URL và anon/public key.
+4. Mở config.js bằng Notepad. Thay YOUR_SUPABASE_PROJECT_URL và YOUR_SUPABASE_ANON_PUBLIC_KEY bằng thông tin vừa lấy. Lưu file.
+   Tuyệt đối KHÔNG dùng service_role key trong config.js hoặc bất kỳ file công khai nào.
+
+PHẦN 2 – BẬT ĐĂNG NHẬP GOOGLE
+1. Trong Supabase, vào Authentication → Providers → Google và bật Google.
+2. Tạo OAuth Client ID dạng Web application trong Google Cloud Console.
+3. Trong Google Cloud, thêm Authorized redirect URI đúng theo Callback URL mà Supabase hiển thị ở phần Google provider.
+4. Sao chép Google Client ID và Client Secret vào cấu hình Google provider trong Supabase rồi lưu.
+5. Trong Supabase → Authentication → URL Configuration, đặt Site URL là https://ma.github.io/bloom-vocab/ và thêm https://ma.github.io/bloom-vocab/** vào Redirect URLs.
+6. Để thử trên máy, có thể thêm URL localhost phù hợp vào Redirect URLs và chạy website bằng máy chủ local (không mở file trực tiếp).
+
+PHẦN 3 – CẤP QUYỀN QUẢN TRỊ CHO CHÍNH BẠN
+1. Mở website, đăng nhập Google bằng tài khoản bạn muốn làm quản trị viên.
+2. Trong Supabase → Authentication → Users, tìm tài khoản vừa đăng nhập và sao chép User UID.
+3. Mở SQL Editor và chạy lệnh sau, thay UID bằng User UID của bạn:
+   update public.profiles set role = 'admin' where id = 'DAN-USER-UID-VAO-DAY';
+4. Đăng xuất rồi đăng nhập lại website. Tài khoản đó sẽ có nhãn Quản trị viên.
+5. Những người đăng nhập Google khác tự động có vai trò member. Không cấp quyền admin cho người khác nếu không muốn họ sửa/xóa dữ liệu.
+
+PHẦN 4 – XUẤT BẢN WEBSITE MIỄN PHÍ
+1. Đăng nhập GitHub bằng tài khoản có username chính xác là ma. Tạo repository công khai tên chính xác bloom-vocab (URL repository sẽ là https://github.com/ma/bloom-vocab). Nếu username GitHub của bạn không phải ma, địa chỉ https://ma.github.io/bloom-vocab/ sẽ không thuộc tài khoản của bạn và cần đổi URL theo username thật.
+2. Tải lên nội dung bên trong thư mục Bloom_Vocabulary (đặc biệt index.html và config.js) trực tiếp ở thư mục gốc của repository, không đặt chúng trong một thư mục con.
+3. Trong repository, vào Settings → Pages → Deploy from a branch → chọn nhánh main và thư mục /(root) → Save.
+4. Chờ GitHub Pages tạo địa chỉ website. Thêm chính xác địa chỉ này vào Supabase Authentication → URL Configuration → Redirect URLs.
+5. Mở website bằng địa chỉ HTTPS để kiểm tra đăng nhập Google.
+
+QUYỀN VÀ BẢO MẬT
+- Khách truy cập: xem kho chung và học từ vựng mà không cần đăng nhập.
+- Thành viên: đăng nhập Google để thêm từ vào kho chung.
+- Quản trị viên (chỉ bạn): tất cả quyền của thành viên, đồng thời sửa/xóa từ, chuyển từ giữa các chủ đề và tạo/đổi tên/xóa chủ đề.
+- Phân quyền được kiểm tra ở Supabase bằng Row Level Security (RLS), không chỉ dựa vào nút ẩn/hiện trên giao diện.
+- Không gửi mật khẩu Google, Google Client Secret hoặc Supabase service_role key cho bất kỳ ai.
+- Gói miễn phí của dịch vụ có giới hạn sử dụng và có thể thay đổi theo chính sách nhà cung cấp.
+
+DỮ LIỆU CŨ
+Nếu bạn đã thêm từ trong bản website cũ trên trình duyệt, hãy mở bản cũ trên đúng máy/trình duyệt đó, chọn Xuất bản sao lưu. Sau khi cấu hình Supabase và đăng nhập vào bản mới bằng tài khoản admin, dùng Nhập bản sao lưu để đưa các từ cũ lên kho chung.
+
+XỬ LÝ LỖI THƯỜNG GẶP
+- Nút Google bị vô hiệu hóa: kiểm tra config.js đã có Project URL và anon/public key chưa.
+- Redirect URL mismatch: thêm đúng địa chỉ website vào Supabase Authentication → URL Configuration.
+- Google provider error: kiểm tra Client ID, Client Secret và Callback URL trong Google Cloud.
+- Không thể thêm/sửa/xóa: kiểm tra SQL đã chạy thành công và tài khoản đã đăng nhập.
+- Nếu cần đưa website lên Internet, phải tải lên cả config.js cùng index.html. Không công khai bất kỳ secret key nào.
+
+Nếu tài khoản đã đăng nhập trước khi chạy SQL tạo bảng profiles, sau khi đăng nhập hãy kiểm tra Supabase → Authentication → Users để lấy UID, rồi tạo hồ sơ member nếu chưa có bằng SQL:
+insert into public.profiles (id, role) values ('DAN-USER-UID-VAO-DAY', 'member') on conflict (id) do nothing;
+Sau đó mới chạy lệnh cấp role admin ở Phần 3.
+
+
+LƯU Ý KHI ĐÃ TẠO PROJECT SUPABASE TRƯỚC ĐÓ
+Nếu bạn đã chạy phiên bản SQL cũ, hãy chạy lại toàn bộ file supabase_setup.sql mới trong SQL Editor để thay chính sách đọc thành công khai (anon + authenticated). Các chính sách ghi vẫn yêu cầu đăng nhập và quyền admin như mô tả. Không chia sẻ service_role key.
